@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dias dos Namorados</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.6/dist/sweetalert2.min.css">
+  <style>
+    .painel {
+      margin: auto;
+      background-color: white;
+      width: 500px;
+      height: 500px;
+      border-radius: 20px;
+      text-align: center;
+      padding-top: 50px;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+
+    button#sim,
+    button#nao {
+      height: 40px;
+      width: 60px;
+      background-color: red;
+      border: 2px solid white;
+      border-radius: 10px;
+      color: white;
+    }
+
+    button#sim {
+      margin-left: -55px;
+    }
+    
+    button#nao {
+      position: absolute;
+      margin-left: 10px;
+    }
+  </style>
+</head>
+
+<body style="background-color: red">
+  <div class="painel">
+    <h1>Feliz Dia dos Namorados</h1>
+    <img src="https://gifman.net/wp-content/uploads/2019/06/ursinho-fofo-apaixonado.gif" width="300px" />
+    <h2>Aceita Namorar comigo?</h2>
+    <button onclick="caixa()" id="sim">Sim</button>
+    <button onmouseover="fuja()" id="nao">Não</button>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.6/dist/sweetalert2.min.js"></script>
+  <script>
+    function fuja() {
+      var botaoNao = document.getElementById('nao')
+
+      var larguraJanela = window.innerWidth
+      var alturaJanela =window.innerHeight
+
+      var maxX = larguraJanela - botaoNao.offsetWidth
+      var maxY = alturaJanela - botaoNao.offsetHeight
+
+      var aleatoriaX = Math.floor(Math.random() * maxX)
+      var aleatorioY = Math.floor(Math.random() * maxY)
+
+      botaoNao.style.left = aleatoriaX + 'px'
+      botaoNao.style.top = aleatorioY + 'px'
+    }
+
+    function caixa() {
+      Swal.fire({
+        title: 'Declaração de Amor',
+        text: 'Eu te amo mais do que palavras podem expressar. Você é minha pessoa especial e eu quero passar o resto da minha vida com você.',
+        icon: 'info',
+        confirmButtonText: 'Eu também te amo!',
+        backdrop: true
+      });
+    }
+  </script>
+</body>
+</html>
